@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Background defaults by theme */
+html.dark, html.dark body {
+  background-color: #07090e;
+  color: #f8fafc;
+}
+
+html.light, html.light body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Scientific Grid / Blueprint background */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+html.light .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+}
+
+html.light .bg-dot-pattern {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+}
+
+/* Glass panel styling */
+.glass-panel {
+  background: rgba(13, 18, 28, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.06);
+}
+
+/* =======================================================
+   LIGHT MODE TARGETED ADAPTATIONS (High Contrast & Crisp)
+   ======================================================= */
+
+/* In light mode, turn main content headings and neutral texts dark */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #0f172a !important;
+}
+
+/* General text classes when in light mode */
+html.light .text-slate-100 {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+/* Transform dark surface panels into clean light card surfaces */
+html.light .bg-\[\#07090e\],
+html.light .bg-\[\#05080e\],
+html.light .bg-\[\#070b13\],
+html.light .bg-\[\#070a10\],
+html.light .bg-\[\#070a11\],
+html.light .bg-\[\#080c14\],
+html.light .bg-\[\#0c1017\],
+html.light .bg-\[\#06080e\],
+html.light .bg-\[\#05070c\],
+html.light .bg-\[\#05070d\],
+html.light .bg-slate-950,
+html.light .bg-slate-950\/90,
+html.light .bg-slate-950\/80,
+html.light .bg-slate-950\/60,
+html.light .bg-slate-950\/50,
+html.light .bg-slate-950\/40 {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html.light .bg-slate-900 {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* In light mode, lighten dark borders */
+html.light .border-white\/10,
+html.light .border-white\/5,
+html.light .border-white\/15,
+html.light .border-white\/20,
+html.light .divide-white\/5,
+html.light .divide-white\/10 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Sub-surface chips and backgrounds in light mode */
+html.light .bg-white\/5 {
+  background-color: #f1f5f9 !important;
+  color: #1e293b;
+}
+
+html.light .bg-white\/10 {
+  background-color: #e2e8f0 !important;
+  color: #0f172a;
+}
+
+html.light .bg-black\/20,
+html.light .bg-black\/30,
+html.light .bg-black\/40,
+html.light .bg-black\/50,
+html.light .bg-black\/60 {
+  background-color: #f8fafc !important;
+}
+
+/* Ensure Cyan and Emerald primary buttons always retain crisp dark text */
+html.light .bg-cyan-400,
+html.light .bg-cyan-500,
+html.light .bg-emerald-400,
+html.light .bg-emerald-500 {
+  color: #020617 !important;
+}
+
+html.light .bg-cyan-400 span,
+html.light .bg-cyan-400 svg,
+html.light .bg-emerald-400 span,
+html.light .bg-emerald-400 svg {
+  color: #020617 !important;
+}
+
+/* Subtle glow effects */
+.glow-cyan {
+  box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.25);
+}
+
+html.light .glow-cyan {
+  box-shadow: 0 0 20px -3px rgba(6, 182, 212, 0.2);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.16);
+  border-radius: 3px;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+/* Keyframe animations */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(0.98); }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
